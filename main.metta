@@ -229,7 +229,7 @@
       ($size (exp_size $target_expr))
    ) (
       - (* $simmilarity 100)
-        (* $size 0)
+        (* $size 3)
    )
 ))
 (= (_fitness $target_expr $tv_res_pair_list )(
@@ -286,10 +286,11 @@
 
 
 ;;; Selects the best expressions from a population based on their fitness scores
-;;; Parameters: a population of boolean expressions, truth value - result pair list, number of best expressions to select
+;;; Parameters: a default exising best if there's, a population of boolean expressions, truth value - result pair list, number of best expressions to select
 ;;; Returns: List of Score - Expression pairs of the best expressions
 ;;; E.g,
-;;;  !(select_best 
+;;;  !(select_best
+;;;     ()
 ;;;     (
 ;;;        (OR A B)
 ;;;        (AND A B)
@@ -404,4 +405,4 @@
       ) ( evolve (+ $gen 1) $tt $new_best )
 )))
 
-!(evolve (OR (AND A B) (AND A B)))
+; !(evolve (OR (AND A B) (AND A B)))
